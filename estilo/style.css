@@ -23,12 +23,6 @@ body{
     background-repeat: no-repeat;
     background-position-y: 0px; 
 }
-.fa-solid{
-    display: none;
-}
-.fa-regular{
-    display: none;
-}
 
 /*menu*/
 
@@ -237,12 +231,6 @@ main{
         justify-content: space-between;
          
     }
-    .fa-solid{
-        display: inline-block;
-}
-    .fa-regular{
-        display: block;
-}
 
     .btns{
         display:flex;
