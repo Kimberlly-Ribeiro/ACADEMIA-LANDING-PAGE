@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*fundo-tela*/
+
+html{
+    width:100vw;
+    height: 100vh;
+    color:white;
+    font-size:62.5%;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background: linear-gradient(rgba(17,17,17,0.8),rgba(20,20,20,1)),url(../imagens/bk.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 0px; 
+}
+.fa-solid{
+    display: none;
+}
+.fa-regular{
+    display: none;
+}
+
+/*menu*/
+
+header{
+    width:100%;
+    height: 7vh;
+    background-color: rgba(22,22,22,0.2);
+}
+.btn-mobile{
+    display:none;
+}
+.menu-content{
+    text-transform: uppercase;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size:1.8rem;
+}
+.logo{
+    font-size:1.8rem;
+    letter-spacing: 0.4rem;
+    cursor: pointer;
+}
+.menu-content .list-itens{
+    display: flex;
+    list-style: none;
+    gap:10px;
+}
+/*EFEITO HOVER SLIDE MENU*/
+.menu-content .list-itens a{
+    color:white;
+    text-decoration: none;
+    padding: 1.5rem;
+/*  IMPORTANTE PARA O EFEITO FUNCIONAR*/
+    transform:2ms ease-in;
+    position:relative;
+}
+
+.menu-content .list-itens a:before{
+    content:'';
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    width: 0px;
+    height: 1px;
+    background-color: #44DB53;
+    transition: all 0.5s ease;
+}
+.menu-content .list-itens a:hover:before{
+    width: 100%;
+}
+
+/*CONTEÚDO PRINCIPAL*/
+/*header tem 7vh+93vh do main = 100vh*/
+main{
+    height:93vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*TEXTOS CONTEÚDO PRINCIPAL*/
+
+.primary-text{
+    max-width:850px;
+    font-size: 5rem;
+    text-align: center;
+    margin:0 1.25rem 2rem 1.25rem;
+    
+}
+.second-text{
+    margin-bottom: 7rem;
+    font-size:2rem;
+    color:#44DB53;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+}
+
+/*BOTÕES*/
+
+.btns{
+    display: flex;
+    justify-content: center;
+    gap:20px;
+}
+.btns button:hover{
+    color:black;
+    border:none;
+}
+.btns button{
+    width:250px;
+    height: 60px;
+    cursor:pointer;
+    border:1px solid white;
+    color:white;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    border-radius: 20px;
+    position:relative;
+    transition: 0.8s;
+}
+.btns button:before{
+    content:'';
+    border-radius: 20px;
+    bottom:0;
+    left:0;
+    position:absolute;
+    width: 0;
+    height: 60px;
+    background-color: #44DB53;
+    z-index: -1;
+    transition: 1s;
+}
+.btns button:hover:before{
+    width:100%;
+}
+@media (max-width:1000px){
+    .btn-mobile{
+        display: flex;
+        border:none;
+        background:none;
+        color:white;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-size:1.5rem;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+    }
+    .list-itens{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: absolute;
+        top: 7vh;
+        right:0;
+        background:rgba(0,0,0);
+        text-align: center;
+        width: 50%;
+        height: 0;
+        z-index: 1;
+        visibility: hidden;
+        overflow-y: hidden;
+        transition: 0.5s;
+    }
+
+    .list-itens a{
+        font-weight: 700;
+
+    }
+/*
+    .list-itens a:hover{
+        font-weight: 700;
+        color:black;
+    }
+*/
+    
+    .hamburger {
+        border-top: 0.150rem solid;
+        width: 2rem;
+    }
+    
+    .hamburger::after,
+    .hamburger::before {
+        content: " ";
+        display: block;
+        width: 2rem;
+        height: 0.150rem;
+        background: currentColor;
+        margin-top: 0.3125rem;
+        position: relative;
+        transition: 0.3s;
+  }
+
+    .nav-menu.active .list-itens{
+        height: calc(100vh - 7vh);
+        visibility: visible;
+        overflow-y: auto;
+    }
+    .nav-menu.active .hamburger{
+        border-top-color: transparent;
+    }
+    .nav-menu.active .hamburger::before{
+        transform: rotate(135deg);
+    }
+    .nav-menu.active .hamburger::after{
+        transform: rotate(-135deg);
+        top: -0.4375rem;
+    }
+    
+    header{
+        border-bottom: 1px solid  #44DB53; 
+        justify-content: space-between;
+         
+    }
+    .fa-solid{
+        display: inline-block;
+}
+    .fa-regular{
+        display: block;
+}
+
+    .btns{
+        display:flex;
+        flex-direction: column;
+    }
+
+}
